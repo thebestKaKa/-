@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome">
+    <title>
+        <%= title %>
+    </title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="bower_components/morris.js/morris.css">
+
+    <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+          page. However, you can choose any other skin. Make sure you
+          apply the skin class to the body tag so the changes take effect. -->
+    <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="index2.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini">
+                    <b>管</b>理</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg">
+                    <b>证书管理系统</b>
+                </span>
+            </a>
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- User Account Menu -->
+                        <li class="dropdown user user-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <!-- The user image in the navbar-->
+                                <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                <span class="hidden-xs">
+                                    <%=username%>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- The user image in the menu -->
+                                <li class="user-header">
+                                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                    <p>
+                                        <%=username%>
+                                            <!--<small>Member since Nov. 2012</small>-->
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <li class="user-body">
+                                    <!-- /.row -->
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-right-container">
+                                        <a href="/logout" class="btn btn-default btn-flat" style="float: right;">退出</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Control Sidebar Toggle Button -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>
+                        <%=username%>
+                    </p>
+                    <a href="#">
+                        <i class="fa fa-circle text-success"></i> 用户</a>
+                </div>
+            </div>
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">目 录</li>
+                <!-- Optionally, you can add icons to the links -->
+                <li>
+                    <a href="/conductor">
+                        <i class="fa fa-link"></i>
+                        <span>主界面</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-link"></i>
+                        <span>产品信息操作</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="/oneinput">产品信息录入</a>
+                        </li>
+                        <li class="active">
+                            <a href="/onemodify">产品信息更新</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="/excel">
+                        <i class="fa fa-link"></i>
+                        <span>暂无</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/count">
+                        <i class="fa fa-link"></i>
+                        <span>产品查询</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/revoke">
+                        <i class="fa fa-link"></i>
+                        <span>撤销产品</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/sample">
+                        <i class="fa fa-link"></i>
+                        <span>样本</span>
+                    </a>
+                </li>
+            </ul>
+
+
+        </section>
+    </aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                产品信息查询与修改
+            </h1>
+        </section>
+        <div class="content">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">产品信息修改</h3>
+                    <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
+                        <div class="btn-group" data-toggle="btn-toggle">
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+
+                    <div id="showout0">
+                        <h2>查询产品</h2>
+                        <div class="col-md-10">
+                            <form class="form-horizontal">
+                                <table cellpadding="0" cellspacing="0" border="0">
+                                    <!--<tr>
+                                        <select class="select" size="1" name="type" id="type">
+                                            <option value="BYZ">学历证书</option>
+                                            <option value="XWZ">学位证书</option>
+                                        </select>
+                                    </tr>-->
+                                    <tr>
+                                        <td class='alignR' style="width: 100px;">产品编号：</td>
+                                        <td class="form-group">
+                                            <div class="zsbh_tips"></div>
+                                            <input type="text" id="num" name="num" value="" autocomplete="off" required='true' minlength="18" maxlength="18" class='lscx_input'
+                                                placeholder="产品编号" />
+                                        </td>
+                                    </tr>
+                                    <tr class="form-group">
+                                        <td class="col-xs-2">
+                                            <button type="button" id="query" class="btn btn-info">查询</button>
+
+                                        </td>
+                                        <td>
+                                            <div class="col-xs-2">
+                                                <input type="reset" value="重置">
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                    <div id='showout1'>
+                        <div class="col-md-10">
+                            <!-- Horizontal Form -->
+                            <div class="box box-info">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">产品信息</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <!-- form start -->
+                                <form class="form-horizontal">
+                                    <div class="box-body">
+                                        <table cellpadding="0" cellspacing="0" border="0">
+                                            <tr>
+                                                <th for="inputEmail3" class="col-sm-2">产品编号：</th>
+
+                                                <td class="form-group">
+                                                    <div class="col-sm-2">
+                                                        <input type="text" id="num1" name="num1" value="" autocomplete="off" required='true' minlength="18" maxlength="18" class='lscx_input'
+                                                            placeholder="证书编号" />
+                                                    </div>
+                                                </td>
+                                                <th for="inputPassword3" class="col-sm-2">产品种类：</th>
+                                                <td class="form-group">
+                                                    <div class="col-sm-2">
+                                                        <input type="text" id="type" name="type" value="" autocomplete="off" required='true' class='lscx_input' placeholder="证书种类"
+                                                        />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th for="inputPassword3" class="col-sm-2 ">生产地：</th>
+                                                <td class="form-group">
+                                                    <div class="col-sm-2">
+                                                        <input type="text" id="place" name="place" value="" autocomplete="off" required='true' class='lscx_input' placeholder="姓名"
+                                                        />
+                                                    </div>
+                                                </td>
+                                                <!--<th for="inputPassword3" class="col-sm-2 ">性别：</th>
+                                                <td class="form-group">
+                                                    <div class="col-sm-2">
+                                                        <select class="select" size="1" name="sex" id="sex">
+                                                            <option value="男">男</option>
+                                                            <option value="女">女</option>
+                                                        </select>
+                                                    </div>
+                                                </td>-->
+                                            </tr>
+                                            <tr>
+                                                <th for="inputPassword3" class="col-sm-2">生产商：</th>
+                                                <td class="form-group">
+                                                    <div class="col-sm-2">
+                                                        <input type="text" id="manufactured" name="manufactured" value="" autocomplete="off" required='true' class='lscx_input' />
+                                                    </div>
+                                                </td>
+                                                <th for="inputPassword3" class="col-sm-2">物流公司：</th>
+                                                <td class="form-group">
+                                                    <div class="col-sm-2">
+                                                        <input type="text" id="transport" name="transport" value="" autocomplete="off" required='true' class='lscx_input' />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th for="inputPassword3" class="col-sm-2 ">经销商：</th>
+                                                <td class="form-group">
+                                                    <div class="col-sm-2">
+                                                        <input type="text" id="agency" name="agency" value="" autocomplete="off" required='true' class='lscx_input' />
+                                                    </div>
+                                                </td>
+                                                <th for="inputPassword3" class="col-sm-2 ">顾客：</th>
+                                                <td class="form-group">
+                                                    <div class="col-sm-2">
+                                                        <input type="text" id="custumer" name="custumer" value="" autocomplete="off" required='true' class='lscx_input' />
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+                                    <div class="box-footer">
+                                        <input type="reset" value="重置">
+
+                                        <button type="button" id="byz_submit" class="btn btn-info">录入</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+        </footer>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 3 -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower_components/fastclick/lib/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="bower_components/raphael/raphael.min.js"></script>
+        <script src="bower_components/morris.js/morris.min.js"></script>
+        <script src="dist/js/demo.js"></script>
+        <script>
+            let username = "<%=username%>";
+            console.log(username);
+            $(function () {
+                //隐藏div
+                $("#showout1").hide();
+                //$("#showout2").hide();
+            });
+            //查询并将查到的块里内容显示出来。
+            $('#query').click(function () {
+                //var zslb = $("#type").val();
+                var cpbh = $("#num").val();
+                $.ajax({
+                    url: '/getModify',//getmodify就是根据编号查询到对应的块并将块返回给你，
+                    type: 'post',
+                    data: {
+                        //zslb: zslb,
+                        cpbh: cpbh
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        data = eval('(' + data + ')')
+                        if (data) {
+                            var num = data.num;
+                            //$("#showout0").hide();
+                            $("#showout1").show();
+                            //$("#showout2").hide();
+                            $("#num1").val(data.num);
+                            $('#type').val(data.type);
+                            $('#place').val(data.place);
+                            $('#manufactured').val(data.manufactured);
+                            $('#transport').val(data.transport);
+                            $('#agency').val(data.agency);
+                            $('#custumer').val(data.custumer);
+
+                        }
+                        else {
+                            alert("无此证书,请重新输入！");
+                        }
+                    },
+                    error: function (data) {
+                        console.log(data);
+                        alert("server error!");
+                    }
+                });
+            });
+            $('#byz_submit').click(function () {
+                var num = document.getElementById("num1").value;
+                var type = $('#type').val();
+                var place = $('#place').val();
+                var manufactured = $('#manufactured').val();
+                var transport = $('#transport').val();
+                var agency = $('#agency').val();
+                var custumer = $('#custumer').val();
+                /*var classes = $('#classes').val();
+                var form = $('#form').val();
+                var certdate = $('#certdate').val();
+                var schoolsystem = $("#schoolsystem").val();
+                var name = $('#name').val();
+                var sex = $("#sex").val();
+                var birthday = $("#birthday").val();
+                var major = $("#major").val();*/
+                let BYZ1 = {
+                    'num': num,
+                    'type': type,
+                    'place': place,
+                    'manufactured': manufactured,
+                    'transport': transport,
+                    'agency': agency,
+                    'custumer': custumer,
+                }
+                console.log(BYZ1);
+                var key = $("#num1").val();
+                cmd = 'invoke("put","' + key + '",\'' + JSON.stringify(BYZ1) + '\')';
+                console.log(cmd);
+                $.ajax({
+                    url: '/api',
+                    type: 'post',
+                    data: {
+                        cmd: cmd
+                    },
+                    success: function (data) {
+                        alert(data);
+                    },
+                    error: function (e) {
+                        alert('server error!');
+                    }
+                });
+            });
+       
+        </script>
+</body>
+
+</html>

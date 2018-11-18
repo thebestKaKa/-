@@ -1,0 +1,170 @@
+<!--另一个界面的代码-->
+
+<div id='showout2'>
+    <div class="col-md-14">
+        <!-- Horizontal Form -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">学位证书</h3>
+            </div>
+            <form name="xwzForm" id="xwzForm">
+                <div class="box-body">
+                    <table id="file_table" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-2">证书编号：</th>
+
+                                <td class="form-group">
+                                    <div class="col-sm-2">
+                                        <input type="text" id="num2" name="num" value="" autocomplete="off" required='true' minlength="18" maxlength="18" class='lscx_input'
+                                        />
+                                    </div>
+                                    <th class="col-sm-2 ">姓名：</th>
+                                    <td class="form-group">
+                                        <div class="col-sm-2">
+                                            <input type="text" id="name" name="name" value="" autocomplete="off" required='true' class='lscx_input' />
+                                        </div>
+                                    </td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-2 ">性别：</th>
+                                <td class="form-group">
+                                    <div class="col-xs-5" style="float: left">
+                                        <select class="select btn btn-block btn-default" size="1" name="sex2" id="sex2">
+                                            <option value="男">男</option>
+                                            <option value="女">女</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th class="col-sm-2">出生日期：</th>
+                                <td class="form-group">
+                                    <div class="col-sm-2">
+                                        <input type="text" id="birthday" name="birthday" value="" autocomplete="off" required='true' class='lscx_input' />
+                                    </div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th class="col-sm-2 ">发证日期：</th>
+                                <td class="form-group">
+                                    <div class="col-sm-2">
+                                        <input type="text" id="certdate" name="certdate" value="" autocomplete="off" required='true' class='lscx_input' />
+                                    </div>
+                                </td>
+                                <th class="col-sm-2">专业：</th>
+                                <td class="form-group">
+                                    <div class="col-sm-2">
+                                        <input type="text" id="major2" name="major2" value="" autocomplete="off" required='true' class='lscx_input' />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-2">学校名称：</th>
+                                <td class="form-group">
+                                    <div class="col-xs-7" style="float: left">
+                                        <select class="select btn btn-block btn-default" size="1" name="school" id="school">
+                                            <option value="南京理工大学">南京理工大学</option>
+                                            <option value="北京理工大学">北京理工大学</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <th class="col-sm-2">证书层次：</th>
+                                <td class="form-group">
+                                    <div class="col-xs-5" style="float: left">
+                                        <select class="select btn btn-block btn-default" size="1" id="txtype2" name="txtype2">
+                                            <option value="学士学位">学士学位</option>
+                                            <option value="硕士学位">硕士学位</option>
+                                            <option value="博士学位">博士学位</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class='alignR' style="width: 150px;">学位类别：</th>
+                                <td class="form-group">
+                                    <div class="col-xs-5" style="float: left">
+                                        <select class="select btn btn-block btn-default" size="1" id="degree2" name="degree2">
+                                            <option value="工学">工学</option>
+                                            <option value="理学">理学</option>
+                                            <option value="经济学">经济学</option>
+                                            <option value="哲学">哲学</option>
+                                            <option value="法学">法学</option>
+                                            <option value="教育学">教育学</option>
+                                            <option value="文学">文学</option>
+                                            <option value="历史学">历史学</option>
+                                            <option value="农学">农学</option>
+                                            <option value="医学">医学</option>
+                                            <option value="军事学">军事学</option>
+                                            <option value="管理学">管理学</option>
+                                            <option value="艺术学">艺术学</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+                <div class="box-footer">
+                    <div class="col-xs-1" style="float: right">
+                        <button type="button" id="xwz_submit" class="btn btn-info">录入</button>
+                    </div>
+                    <div class="col-xs-1">
+                        <input class="btn btn-info" type="reset" value="重置">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $('#xwz_submit').click(function () {
+        var num = document.getElementById("num2").value;
+        var num = $("#num2").val();
+        var txtype = $('#txtype2').val();
+        var degree = $('#degree2').val();
+        var school = $('#school2').val();
+        var certdate = $('#certdate2').val();
+        var name = $('#name2').val();
+        var sex = $("#sex2").val();
+        var birthday = $("#birthday2").val();
+        var major = $("#major2").val();
+        if (!regex.test(certdate)) {
+            alert("发证日期格式不正确，日期格式为：yyyy-mm-dd");
+            return;
+        }
+        if (!regex.test(birthday)) {
+            alert("出生日期格式不正确，日期格式为：yyyy-mm-dd");
+            return;
+        }
+        let XWZ1 = {
+            'num': num,
+            'txtype': txtype,
+            'certdate': certdate,
+            'name': name,
+            'sex': sex,
+            'school': school,
+            'degree': degree,
+            'birthday': birthday,
+            'major': major
+        }
+        console.log(XWZ1);
+        var key = "XWZ" + $("#num2").val();
+        cmd = 'invoke("put","' + key + '",\'' + JSON.stringify(XWZ1) + '\')';
+        console.log(cmd);
+        $.ajax({
+            url: '/api',
+            type: 'get',
+            data: {
+                cmd: cmd
+            },
+            success: function (data) {
+                alert(data);
+                $("#showout0").show();
+                $("#showout1").hide();
+                $("#showout2").hide();
+            },
+            error: function (e) {
+                alert('server error!');
+            }
+        });
+    });
+</script>
